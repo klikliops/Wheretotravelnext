@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Where to Travel Next?</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .main-result {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    button {
+      background: #0078d4;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+
+    .top-picks {
+      text-align: center;
+    }
+
+    .top-picks h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #666;
+    }
+
+    .top-picks ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .top-picks li {
+      font-size: 1rem;
+      margin: 0.4rem 0;
+    }
+
+    .top-picks li::before {
+      content: "✈️ ";
+      margin-right: 0.5rem;
+    }
+
+    .ads {
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 600px;
+      height: 80px;
+      background: #e0e0e0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Where Should You Travel Next?</h1>
+
+  <div class="container">
+    <div class="main-result" id="mainResult">🎯 Click the button to find out!</div>
+    <button onclick="pickDestination()">Pick a Destination</button>
+
+    <div class="top-picks">
+      <h3>Top 3 Most Famous Destinations</h3>
+      <ul id="topPicksList">
+        <li>Paris, France</li>
+        <li>New York City, USA</li>
+        <li>Tokyo, Japan</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ads">
+    Your Ad Banner Here
+  </div>
+
+  <script>
+    const allDestinations = [
+      "Rome, Italy", "Barcelona, Spain", "Cebu, Philippines",
+      "Dubai, UAE", "Reykjavik, Iceland", "Istanbul, Turkey",
+      "Cape Town, South Africa", "Rio de Janeiro, Brazil",
+      "Bali, Indonesia", "Vancouver, Canada", "Bangkok, Thailand",
+      "Seoul, South Korea", "Sydney, Australia", "Amsterdam, Netherlands",
+      "Queenstown, New Zealand", "Singapore", "Lisbon, Portugal"
+    ];
+
+    function pickDestination() {
+      let shuffled = [...allDestinations].sort(() => 0.5 - Math.random());
+      const main = shuffled[0];
+      document.getElementById("mainResult").textContent = `📍 ${main}`;
+    }
+  </script>
+
+</body>
+</html>
